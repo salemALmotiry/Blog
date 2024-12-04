@@ -85,9 +85,9 @@ public class PostController {
     public ResponseEntity<List<Post>> getPostByCategoryName(@PathVariable String catName) {
         List<Post> posts = postService.getPostByCategoryName(catName);
         if (posts.isEmpty()) {
-            return ResponseEntity.status(404).body(null); // No posts found for category
+            return ResponseEntity.status(404).body(null);
         }
-        return ResponseEntity.status(200).body(posts); // Return posts if found
+        return ResponseEntity.status(200).body(posts);
     }
 
 
