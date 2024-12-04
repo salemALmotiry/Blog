@@ -1,5 +1,6 @@
 package com.example.blog.Controller;
 
+import com.example.blog.ApiResponse.ApiResponse;
 import com.example.blog.Model.User;
 import com.example.blog.Service.UserService;
 import jakarta.validation.Valid;
@@ -57,12 +58,6 @@ public class UserController {
 
     }
 
-    @PostMapping("/login/user-name/{userName}/password/{password}")
-    public ResponseEntity login(@PathVariable String userName, @PathVariable String password){
-
-        userService.loginUser(userName,password);
-        return ResponseEntity.status(200).body(new ApiResponse("User successfully logged in."));
-    }
 
 
 

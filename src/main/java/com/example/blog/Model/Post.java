@@ -26,7 +26,7 @@ public class Post {
     private String title;
 
     @NotEmpty(message = "Content cannot be empty")
-    @Size(min = 10, max = 500, message = "Content must be between 10 and 5000 characters")
+    @Size(min = 10, max = 500, message = "Content must be between 10 and 500 characters")
     @Column(columnDefinition = "TEXT not null")
     private String content;
 

@@ -1,5 +1,6 @@
 package com.example.blog.Controller;
 
+import com.example.blog.ApiResponse.ApiResponse;
 import com.example.blog.Model.Post;
 import com.example.blog.Service.PostService;
 import jakarta.validation.Valid;
@@ -78,6 +79,15 @@ public class PostController {
     public ResponseEntity getAllPostsBeforeDate(@PathVariable String date) {
         List<Post> posts = postService.getAllPostsBeforeDate(date);
         return ResponseEntity.status(200).body(posts);
+    }
+
+    @GetMapping("/get-by-category-name/category-name/{catName}")
+    public ResponseEntity<List<Post>> getPostByCategoryName(@PathVariable String catName) {
+        List<Post> posts = postService.getPostByCategoryName(catName);
+        if (posts.isEmpty()) {
+            return ResponseEntity.status(404).body(null); // No posts found for category
+        }
+        return ResponseEntity.status(200).body(posts); // Return posts if found
     }
 
 

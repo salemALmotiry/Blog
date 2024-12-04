@@ -13,8 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
-@Check(constraints = "role = 'admin' or role = 'user' ")
-@Check(constraints = "age >= 21 ")
+
 
 public class User {
 

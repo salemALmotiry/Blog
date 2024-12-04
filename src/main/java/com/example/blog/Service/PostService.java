@@ -61,7 +61,17 @@ public class PostService {
     //______________________________________________________________________-
 
     public List<Post> getPostsByCategory(Integer categoryId) {
+        Category category = categoryService.getCategoryById(categoryId);
         return postRepository.findAllByCategoryId(categoryId);
+    }
+
+    public List<Post> getPostByCategoryName(String catName) {
+        Category category = categoryService.getCategoryByName(catName);
+        if (category == null) {
+            throw new ApiException("Category not found");
+        }
+        return postRepository.findAllByCategoryId(category.getCategoryId());
+
     }
 
     public List<Post> getPostsByUser(Integer userId) {

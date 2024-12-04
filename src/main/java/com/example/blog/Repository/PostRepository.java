@@ -13,12 +13,12 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 
     Post findPostByPostId(Integer postId);
 
+
     List<Post> findAllByCategoryId(Integer categoryId);
+
 
     List<Post> findAllByUserId(Integer userId);
 
-    @Query("SELECT COUNT(p) FROM Post p WHERE p.categoryId = ?1")
-    Long countPostsByCategoryId(Integer categoryId);
 
     @Query("SELECT p FROM Post p ORDER BY p.publishDate DESC")
     List<Post> findRecentPosts();

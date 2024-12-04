@@ -49,25 +49,6 @@ public class UserService {
 
     }
 
-
-
-    public void loginUser(String userName, String password) {
-        Boolean login = userRepository.loginUser(userName, password);
-        if (!login) {
-            throw new ApiException("username or password is incorrect");
-        }
-
-    }
-
-    public User findUserByEmail(String email) {
-
-        User user =  userRepository.findUserByEmail(email);
-        if (user == null) {
-            throw new ApiException("User not found");
-        }
-        return user;
-    }
-
     public User findUserById(Integer userId) {
         User user = userRepository.findUserById(userId);
         if (user == null) {

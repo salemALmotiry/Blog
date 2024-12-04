@@ -16,8 +16,6 @@ public interface CommentRepository extends JpaRepository<Comment, Integer> {
 
     Comment findCommentByCommentId(Integer commentId);
 
-    @Query("SELECT COUNT(c) FROM Comment c WHERE c.postId = ?1")
-    Long countCommentsByPostId(Integer postId);
 
     @Query("SELECT c FROM Comment c WHERE c.postId = ?1 ORDER BY c.commentDate DESC")
     List<Comment> findRecentCommentsByPostId(Integer postId);

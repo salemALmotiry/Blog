@@ -64,6 +64,7 @@ public class CommentService {
 
 
     public List<Comment> findRecentCommentsByPostId(Integer postId) {
+        Post post = postService.getPostById(postId);
         return commentRepository.findRecentCommentsByPostId(postId);
     }
 

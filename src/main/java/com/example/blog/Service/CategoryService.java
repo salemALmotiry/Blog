@@ -48,4 +48,13 @@ public class CategoryService {
         }
         return category;
     }
+
+    public Category getCategoryByName(String categoryName) {
+        Category category = categoryRepository.findCategoryByName(categoryName);
+        if (category == null) {
+            throw new ApiException("Category not found");
+        }
+        return category;
+    }
+
 }
